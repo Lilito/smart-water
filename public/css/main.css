@@ -1,0 +1,190 @@
+h1, .h1 {
+    font-size: 20px;
+}
+.panel h1, .panel .h1 {
+    font-size: 18px;
+}
+
+html {
+
+  font-family: Helvetica ;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+p ,span {
+    font-size: 16px;
+}
+
+.btn-grey {
+    color: #333;
+    background-color: #e0e0e0;
+    border-color: #e0e0e0;
+    border-spacing: inherit;
+    border: 0px solid transparent;
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.icon-color{
+  color: #ffffff;
+}
+
+.btn-color{
+  color: #ffffff;
+  padding: 0 10px;
+}
+
+.fa-large{
+  font-size: 4em;
+}
+.fa-med{
+  font-size: 3em;
+}
+.fa-small{
+  font-size: 2.3em;
+}
+.wrapper-grey {
+  background: #e6eaec;
+  height: 90vh;
+}
+
+.panel-fixed {
+  height:220px;
+}
+
+.panel-rounded{
+  border-radius: 10px !important;
+}
+.panel-rounded .panel-heading{
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.img-logo {
+  width: 60px;
+  height: 60px;
+}
+
+
+.url-style{
+    text-overflow: ellipsis;
+    display: block;
+    width: 488px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.span-color{
+  background-color: #f9ab2e;
+
+  color: white;
+}
+
+.icon-color{
+
+  padding-left: 16px;
+}
+
+.form-control {
+  border-radius: 0px;
+}
+
+.bg-red {
+  background-color: #fb4d3f;
+}
+
+.bg-blue {
+  background-color: #5cb0c2;
+}
+
+.bg-white-red {
+  background-color: white;
+  color: #fb4d3f;
+}
+.bg-white-blue {
+  background-color: white;
+  color: #5cb0c2;
+}
+.width-50{
+  width:50px;
+}
+.width-80{
+  width:80px;
+}
+.width-100{
+  width:100px;
+}
+.width-150{
+  width:150px;
+}
+.width-200{
+  width:200px;
+}
+.width-250{
+  width:250px;
+}
+.width-300{
+  width:300px;
+}
+
+.drop-shadow {
+    -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+}
+
+.panel-padding {
+  padding: 35px;
+  font-family: Helvetica ;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
+}
+
+.btn-yellow{
+  background-color: #f9ab2e;
+  color: white;
+  border-radius: 0px;
+}
+
+input.form-control.font-login {
+  font-size: 18px;
+  font-family: Helvetica ;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 100;
+	line-height: 26.4px;
+}
+input.form-control[type="email"]:focus, input.form-control[type="password"]:focus, input.form-control[type="text"]:focus {
+  box-shadow: inset 0 -1px 0 #f2cc9b;
+  border-color: #f2cc9b;
+
+}
+
+/*
+span:hover {
+  background-color: white;
+  color: #f9ab2e;
+  border-color: #f9ab2e;
+}*/
+
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 30px;
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+#map_canvas {
+    width:100%;
+    height: 450px;
+}

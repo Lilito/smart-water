@@ -1,0 +1,116 @@
+<div class="container-fluid">
+
+  <div ng-show="view ==='list'">
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-1">
+      <div class="panel panel-default" >
+        <div class="panel-body" >
+          <div class="pull-right">
+          <a class="btn btn-default btn-sm"  data-target="#mpiDialog" data-toggle="modal" ng-click="newUser()" >
+              <i class="fa fa-plus"></i> New User
+          </a>
+        </div>
+      <br><br>
+          <table class="table" data-info="true" data-ordering="true" data-paging="true" data-searching="true" id="usersTable">
+            <thead>
+              <th>Username</th>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Delete</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in usersList">
+                <td data-title="'UserIntranet'">
+                  {{item.doc.user}}
+                </td>
+                <td data-title="'Name'">
+                  {{item.doc.name}}
+                </td>
+                <td data-title="'Role'">
+                  {{item.doc.role}}
+                </td>
+                <td style="white-space: nowrap;">
+                  <a class="btn btn-default btn-sm" data-target="#editUser" data-toggle="modal" ng-click="showUser(item.doc)">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                  <a class="btn btn-default btn-sm" role="button" data-target="#deleteUser" data-toggle="modal" ng-click="selectUser(item.doc)">
+                    <i class="fa fa-times"></i>
+                  </a>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Start new user dialog -->
+	<div class="modal fade" id="mpiDialog" tabindex="-1" role="dialog" aria-labelledby="">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4  class="modal-title" id="myModalLabel">New User</h4>
+	      </div>
+	      <div class="modal-body">
+
+          <div class="form-group">
+							<label for="user.user" class="control-label">Username:</label>
+							<input type="text" required  min="1" maxlength="100" class="form-control" id="user.user" name="user.user" data-ng-model="user.user">
+					</div>
+          <div class="form-group">
+							<label for="user.user" class="control-label">Password:</label>
+							<input type="text" required  min="1" maxlength="100" class="form-control" id="user.password" name="user.password" data-ng-model="user.password">
+					</div>
+
+					<div class="form-group">
+							<label for="user.name" class="control-label">Name:</label>
+							<input type="text" required  min="1" maxlength="200" class="form-control" id="user.name" name="user.name" data-ng-model="user.name">
+					</div>
+
+          <div class="form-group">
+              <label for="user.role" class="control-label">Role:</label>
+              <select name="user.role" ng-model="user.role" class="form-control" ng-disabled="spinner.users">
+                      <option value="">Select</option>
+                      <option value="Administrator">Administrator</option>
+                      <option value="Consulter">Consulter</option>
+              </select>
+            </div>
+
+					<br/><br/>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	        <button type="button" class="btn btn-yellow" data-dismiss="modal" ng-click="saveUser()">Save</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+  <!-- End New Userdialog -->
+
+  <!-- Delete user -->
+  <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Delete User</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+          </p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="removeUser()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Delete user-->

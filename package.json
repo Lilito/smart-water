@@ -1,0 +1,31 @@
+{
+  "author": "IBM",
+  "engines": {
+    "node": "0.12.7"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "cloudant": "1.1.0",
+    "cookie-parser": "^1.3.5",
+    "crypto": "0.0.3",
+    "express": "4.*",
+    "express-session": "^1.11.3",
+    "ldapjs": "mcavage/node-ldapjs.git",
+    "passport": "^0.2.2",
+    "passport-local": "^1.0.0",
+    "multer": "*",
+    "q": "^1.4.1",
+    "request": "*",
+    "qs":"*"
+  },
+  "devDependencies": {
+
+  },
+  "repository": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "description": "Starts a server which listens for user modules invocation requests.",
+  "license": "IBM",
+  "main": "app.js"
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>Smart Water</title>
+
+  <link rel="icon" href="images/manage_32.png" type="image/x-icon" />
+
+  <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.paper.white.css">
+  <link rel="stylesheet" href="css/fontawesome/font-awesome.min.css">
+  <link rel="stylesheet" href="js/lib/ngtoast/dist/ngToast.min.css">
+  <link rel="stylesheet" href="js/lib/ng-table/dist/ng-table.min.css">
+  <link rel="stylesheet" href="js/lib/angularjs-datetime-picker/angularjs-datetime-picker.css">
+  <link href="css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="js/lib/angular-autocomplete/massautocomplete.theme.css">
+
+  <script src="js/lib/q/q.js"></script>
+  <script src="js/lib/lodash/dist/lodash.js"></script>
+  <script src="js/lib/angular/angular.min.js"></script>
+  <script src="js/lib/angular/angular-animate.js"></script>
+  <script src="js/lib/angular/angular-sanitize.js"></script>
+  <script src="js/lib/angular/angular-route.js"></script>
+  <script src="js/lib/angular-ui-router/angular-ui-router.js"></script>
+  <script src="js/lib/jquery/jquery.min.js"></script>
+  <script src="js/lib/bootstrap/bootstrap.min.js"></script>
+  <script src="js/lib/angular-bootstrap/ui-bootstrap-tpls-1.3.2.min.js"></script>
+  <script src="js/lib/ngtoast/dist/ngToast.min.js"></script>
+  <script src="js/lib/angular-filter/dist/angular-filter.js"></script>
+  <script src="js/lib/ng-table/dist/ng-table.js"></script>
+  <script src="js/lib/angularjs-datetime-picker/angularjs-datetime-picker.min.js"></script>
+  <script src="js/lib/angular-autocomplete/massautocomplete.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3" type="text/javascript"></script>
+  <!-- your app's js -->
+  <script src="app/app.js"></script>
+  <!-- controllers js -->
+  <script src="app/modules/common/controller/common.js"></script>
+  <script src="app/modules/home/controller/home.js"></script>
+  <script src="app/modules/admin/controller/users.js"></script>
+  <script src="app/modules/login/controller/login.js"></script>
+  <script src="app/modules/login/controller/logout.js"></script>
+  <!-- services js -->
+  <script src="app/services/security.js"></script>
+
+
+</head>
+<body ng-app="starter" >
+  <div data-ui-view>
+    <div class="row">
+      <div class="col-md-12">
+        <img style="width: 40px" src="images/watson_busy_icn.gif" alt="Loading..." />
+        Cargando aplicaci&oacute;n...
+      </div>
+    </div>
+  </div>
+
+</body>
+
+
+<footer role="footer">
+</footer>
+<!-- FOOTER_END -->
+</html>

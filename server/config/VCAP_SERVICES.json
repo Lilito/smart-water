@@ -1,0 +1,35 @@
+{
+  "cloudantNoSQLDB" : [ {
+    "name" : "Cloudant NoSQL DB-xj",
+    "label" : "cloudantNoSQLDB",
+    "plan" : "Shared",
+    "credentials" : {
+      "username": "",
+            "password": "",
+            "host": "",
+            "port": 443,
+            "url": "http://127.0.0.1:5984/"
+      }
+  } ],
+  "user-provided" : [ {
+    "name" : "W3 eAPIm dev/test-20",
+    "label" : "user-provided",
+    "credentials" : {
+      "url" : "https://eapim-dev.w3ibm.mybluemix.net",
+      "path" : "/workforce/development/ecampus",
+      "client_id" : "e21b7527-6deb-42cf-8f1f-0fa89c45955b",
+      "client_secret" : "P8gA3uT8fW3nF4gY4sQ2iP3jI7tN6pW1cI1uK7cM3eA6mU8qG8"
+    }
+  } ],
+  "facesservicebroker": [
+      {
+         "name": "IBM Faces-z6",
+         "label": "facesservicebroker",
+         "plan": "default",
+         "credentials": {
+            "facesUrl": "http://faces.w3ibm.mybluemix.net",
+            "imagesUrl": "http://images.w3ibm.mybluemix.net"
+         }
+      }
+   ]
+}
