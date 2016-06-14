@@ -24,9 +24,8 @@ app.controller('LoginCtrl', function ($rootScope, $scope,$log,$state,$stateParam
 			$scope.spinner = true;
 
 			AuthService.login($scope.credentials.username, $scope.credentials.password).then(function(authenticated) {
-				
 					$scope.spinner = false;
-				$state.go('app.home', {}, {reload: true});
+				  $state.go('app.home', {}, {reload: true});
 			}, function(err) {
 				$scope.spinner = false;
 					$scope.loginErrorMsg = err;

@@ -86,7 +86,6 @@ app.config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
 
 
 app.run(function ($rootScope, $state, AuthService, AUTH_EVENTS) {
-
   $rootScope.$on('$stateChangeStart', function (e, toState, toParams, fromState, fromParams) {
     // if ('data' in next && 'authorizedRoles' in next.data) {
     //   var authorizedRoles = next.data.authorizedRoles;
@@ -96,7 +95,6 @@ app.run(function ($rootScope, $state, AuthService, AUTH_EVENTS) {
     //     $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
     //   }
     // }
-return;
     if (!AuthService.isAuthenticated()) {
       e.preventDefault();
       $state.go("login");

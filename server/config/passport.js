@@ -35,6 +35,7 @@ passport.use( new LocalStrategy(
         if(data.body.password===password){
           user.username=username;
           user.role= data.body.role;
+          user.name=data.body.name;
           user.hasAccess=true;
           	console.info("[INFO] Received valid login for "+ username);
         }

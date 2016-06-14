@@ -15,32 +15,25 @@ angular.module('starter')
     var token = window.localStorage.getItem(LOCAL_TOKEN_KEY);
     var employee = window.localStorage.getItem(NAME);
     if (token) {
-      useCredentials(token, employee);
+      useCredentials(token);
     }
   }
 
-  function storeUserCredentials(token,employee) {
-    console.log(token);
-    window.localStorage.setItem(LOCAL_TOKEN_KEY, token);
-    window.localStorage.setItem(NAME, employee);
-    useCredentials(token,employee);
+  function storeUserCredentials(data) {
+    window.localStorage.setItem(LOCAL_TOKEN_KEY, data);
+    window.localStorage.setItem(NAME, data.name);
+    useCredentials(data);
   }
 
-  function useCredentials(token, employee) {
-    username = token.split(',')[0];
-    userAccess = token.split(',')[1];
+  function useCredentials(data) {
+    username = data.user;
+    userAccess = data.role;
     isAuthenticated = true;
-    authToken = token;
-    name=employee;
+    authToken = data;
+    name=data.name;
 
-    if (userAccess == 'Administrador') {
+    if (userAccess == 'Administrator') {
       role = USER_ROLES.admin;
-    }
-    if (userAccess == 'Consultor') {
-      role = USER_ROLES.consultor;
-    }
-    if (userAccess == 'Evaluador') {
-      role = USER_ROLES.evaluator;
     }
     if (userAccess === undefined) {
       role='';
@@ -48,7 +41,7 @@ angular.module('starter')
 
 
     // Set the token as header for your requests!
-    $http.defaults.headers.common['X-Auth-Token'] = token;
+    $http.defaults.headers.common['X-Auth-Token'] = data;
   }
 
   function destroyUserCredentials() {
