@@ -67,7 +67,7 @@ var User = {
 	},
 
 	getUser: function(username){
-		
+
 			var deferred = q.defer();
 		var user = {};
 		user._id= "user:"+username;
@@ -75,9 +75,8 @@ var User = {
 		db.get(user._id, []).then(function(data){
 	    deferred.resolve(data);
 	  }).catch(function (error) {
-			console.log("[User] error : ");
-			console.log(error);
-			deferred.reject(error);
+			console.log("[User] error : " + error.error.reason);
+			deferred.resolve(error);
 		});
 		return deferred.promise;
   },

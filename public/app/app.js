@@ -87,18 +87,15 @@ app.config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
 
 app.run(function ($rootScope, $state, AuthService, AUTH_EVENTS) {
   $rootScope.$on('$stateChangeStart', function (e, toState, toParams, fromState, fromParams) {
-    // if ('data' in next && 'authorizedRoles' in next.data) {
-    //   var authorizedRoles = next.data.authorizedRoles;
-    //   if (!AuthService.isAuthorized(authorizedRoles)) {
-    //     e.preventDefault();
-    //     $state.go($state.current, {}, {reload: true});
-    //     $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
-    //   }
-    // }
+    var isNavigatingToAuth = toState.name === "login";
+
+    if(isNavigatingToAuth){
+       return; // no need to redirect
+    }
+
     if (!AuthService.isAuthenticated()) {
       e.preventDefault();
       $state.go("login");
-      return;
       // if (next.name !== 'login') {
       //   event.preventDefault();
       //   $state.go('login');
