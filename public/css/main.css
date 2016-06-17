@@ -47,7 +47,8 @@ p ,span {
 }
 .wrapper-grey {
   background: #e6eaec;
-  height: 90vh;
+  height: 100vh;
+  width: 100%
 }
 
 .panel-fixed {

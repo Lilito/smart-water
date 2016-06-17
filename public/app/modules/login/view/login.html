@@ -3,45 +3,48 @@
 <div>
 	<div class="wrapper-grey">
 		<br><br>
-	<div>
-		<div class="row">
+		<div>
+			<div class="row">
 
-			<div class="col-md-7 col-md-offset-1">
-				<div class="panel panel-default" style="width:100%">
-					<div class="panel-body">
-						<br>
-						<form class="form-signin" method="post" role="form" name="loginForm" data-ng-submit="clickLogin()" novalidate>
-							<img src="images/user_128_gray.png" class="center-block"/>
-							<p class="text-center text-login">
-								Welcome
-							</p>
-							<p></p>
-							<div class="form-group has-feedback width-300 center-block font-login">
-								<input type="text" name="username" id="username" class="form-control font-login" placeholder="Username" data-ng-model="credentials.username" required autofocus>
-								<p data-ng-show="submitted && loginForm.username.$error.required || loginForm.username.$error.email" class="help-block">Username</p>
-							</div>
-							<div class="form-group has-feedback width-300 center-block font-login">
-								<input type="password" value="" class="form-control font-login" size="40" id="password" name="password" ng-model="credentials.password" placeholder="Password" required>
-								<span class="form-control-feedback span-color" ng-click="clickLogin(); submitted=true;" aria-hidden="true" style="pointer-events: auto; text-decoration: none;cursor: pointer;" ng-disable="spinner"><i class="fa fa-arrow-circle-o-right fa-small"></i></span>
-								<span class="help-block has-error" data-ng-show="submitted && loginForm.password.$error.required">Password</span>
-							</div>
+				<div class="col-xs-12 col-sm-10 col-lg-8 col-md-6 col-md-offset-3 col-lg-offset-2 col-sm-offset-1">
+					<h1 style="font-size: 25px; margin: 30px 0 20px; text-align: center">
+						<i class="fa fa-cogs"></i>  Smart Water
+					</h1>
+					<div class="panel panel-default" style="width:100%">
+						<div class="panel-body">
+							<br>
+							<form class="form-signin" method="post" role="form" name="loginForm" data-ng-submit="clickLogin()" novalidate>
+								<img width="100" src="images/user_128_gray.png" class="center-block"/>
+								<p class="text-center text-login">
+									Welcome
+								</p>
+								<p></p>
+								<div class="form-group has-feedback width-300 center-block font-login">
+									<input type="text" name="username" id="username" class="form-control font-login" placeholder="Username" data-ng-model="credentials.username" required autofocus>
+									<p data-ng-show="submitted && loginForm.username.$error.required || loginForm.username.$error.email" class="help-block">Username</p>
+								</div>
+								<div class="form-group has-feedback width-300 center-block font-login">
+									<input type="password" value="" class="form-control font-login" size="40" id="password" name="password" ng-model="credentials.password" placeholder="Password" required>
+									<span class="form-control-feedback span-color" ng-click="clickLogin(); submitted=true;" aria-hidden="true" style="pointer-events: auto; text-decoration: none;cursor: pointer;" ng-disable="spinner"><i class="fa fa-arrow-circle-o-right fa-small"></i></span>
+									<span class="help-block has-error" data-ng-show="submitted && loginForm.password.$error.required">Password</span>
+								</div>
 
-							<div data-ng-show="spinner"  class="center-block ng-hide" style="padding: 10px 0" >
-								<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
-								<span>Validating...</span>
-							</div>
-							<div data-ng-show="loginErrorMsg"  class="center-block ng-hide" style="padding: 10px 0" >
-								<span>{{loginErrorMsg}}</span>
-							</div>
+								<div data-ng-show="spinner"  class="center-block ng-hide" style="padding: 10px 0" >
+									<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+									<span>Validating...</span>
+								</div>
+								<div data-ng-show="loginErrorMsg"  class="center-block ng-hide" style="padding: 10px 0" >
+									<span>{{loginErrorMsg}}</span>
+								</div>
 
-						</br>
+							</br>
 
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div> <!-- /div view list -->
+	</div> <!-- /div view list -->
 
 </div> <!-- /container -->
 
