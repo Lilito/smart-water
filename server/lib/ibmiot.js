@@ -38,11 +38,11 @@ var clientiot = {
       console.log("[iot] Error : "+err);
     });
 
-    // appClient.on("deviceEvent", function (deviceType, deviceId, eventType, format, payload) {
-    //     console.log("Device Event from :: "+deviceType+" : "+deviceId+" of event "+eventType+" with payload : "+payload);
-    //     console.log();
-    //
-    // });
+    appClient.on("deviceEvent", function (deviceType, deviceId, eventType, format, payload) {
+        console.log("Device Event from :: "+deviceType+" : "+deviceId+" of event "+eventType+" with payload : "+payload);
+        console.log();
+
+    });
 
     // appClient.on("deviceStatus", function (deviceType, deviceId, payload, topic) {
     //     console.log("Device status from :: "+deviceType+" : "+deviceId+" with payload : "+payload);
