@@ -31,8 +31,6 @@ var clientiot = {
       appClient.subscribeToDeviceStatus();
       appClient.subscribeToDeviceEvents();
 
-
-
   });
     appClient.on("error", function (err) {
       console.log("[iot] Error : "+err);
@@ -155,6 +153,38 @@ getAllDevicesbyType: function (type) {
             deferred.reject({"status": 500, "body": {}, "error": error});
     });
 return deferred.promise;
+},
+registerDevice: function (type, deviceId, authToken, deviceInfo, location,metada) {
+
+  //Example:
+  // var type = "Android";
+  // var deviceId = "30002000";
+  // var authToken = "password";
+  // var metadata = {"customField1": "customValue3", "customField2": "customValue4"};
+  // var deviceInfo = {"serialNumber": "001", "manufacturer": "Blueberry", "model": "e2", "deviceClass": "A", "descriptiveLocation" : "Bangalore", "fwVersion" : "1.0.1", "hwVersion" : "12.01"};
+  // var location = {"longitude" : "12.78", "latitude" : "45.90", "elevation" : "2000", "accuracy" : "0", "measuredDateTime" : "2015-10-28T08:45:11.662Z"};
+
+  var deferred = q.defer();
+  appClient.registerDevice(type, deviceId, authToken, deviceInfo, location, metadata).then (function onSuccess (response) {
+    console.log("Success Registering Device");
+    deferred.resolve({"status": 200, "body": response});
+  }, function onError (error) {
+    console.log("Fail registering Device");
+    deferred.reject({"status": 500, "body": {}, "error": error});
+  });
+  return deferred.promise;
+},
+
+deleteDevice: function (type, deviceId) {
+  var deferred = q.defer();
+  appClient.unregisterDevice(type, deviceId).then (function onSuccess (response) {
+    console.log("Success deleting device");
+    deferred.resolve({"status": 200, "body": response});
+  }, function onError (error) {
+    console.log("Fail deleting device");
+    deferred.reject({"status": 500, "body": {}, "error": error});
+  });
+  return deferred.promise;
 }
 
 

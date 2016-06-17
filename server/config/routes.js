@@ -56,6 +56,9 @@ router.get('/logout', function(req, res) {
 
 
 router.get('/api/valves', middleware.ensureAuthenticatedAPI, Valve.getValves);
+router.post('/api/valves', middleware.ensureAuthenticatedAPI, Valve.saveValve);
+router.delete('/api/valves/:id/:rev/:type/:deviceid', middleware.ensureAuthenticatedAPI, Valve.deleteValve);
+
 
 router.get('/api/user',middleware.ensureAuthenticatedAPI, User.getUsers);
 router.post('/api/user', middleware.ensureAuthenticatedAPI, User.saveUser);

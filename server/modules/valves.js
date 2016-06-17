@@ -29,14 +29,19 @@ var Valves = {
   },
 
 	saveValve: function(req, res){
-		var valve = req.body.valve;
-		valve._id= "valve:"+valve.number;
-		valve.type="valve";
+		var type = req.body.type;
+		var deviceId = req.body.deviceId;
+		var authToken = "";
+		var metadata = {};
+		var deviceInfo = req.body.deviceInfo;
+		var location = req.body.location;
 
-		db.save(valve).then(function(data){
-	    res.json(data);
-	  }).catch(function (error) {
-			console.log("[Valve] error : ");
+		iot.registerDevice(type, deviceId, authToken, deviceInfo, location, metadata).then(function (result) {
+			console.log(result.body);
+			var device=result.body;
+			Valves.createValve(device);
+		}).catch(function (error) {
+			console.log("[Valve] error registerDevice : ");
 			console.log(error);
 			res.json(error);
 		});
@@ -55,19 +60,22 @@ var Valves = {
 	deleteValve: function(req, res){
 		var id = req.params.id;
 		var rev = req.params.rev;
+		var type=req.params.type;
+		var deviceId= req.params.deviceid;
 
-		console.log(id);
-		console.log(rev);
-
-		db.delete(id, rev).then(function(data){
-	    res.json(data);
-	  }).catch(function (error) {
-			console.log("[Valve] error : ");
+		iot.deleteDevice(type, deviceId).then(function (response) {
+			db.delete(id, rev).then(function(data){
+				res.json(data);
+			}).catch(function (error) {
+				console.log("[Valve] error deleting valve : ");
+				console.log(error);
+				res.json(error);
+			});
+		}).catch(function (err) {
+			console.log("[Valve] error deletingDevice : ");
 			console.log(error);
-
 			res.json(error);
 		});
-
   },
 
 	updateValve: function(req, res){
