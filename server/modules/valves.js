@@ -1,17 +1,29 @@
 var express 	= require('express'),
 	db          = require('../lib/db'),
+	iot          = require('../lib/ibmiot'),
 	q 					= require("q");
 
 var Valves = {
 
-  getAllApplications: function(req, res){
+  dumpAllValves: function(req, res){
+		iot.getAllDevicesTypes().then(function (data) {
+			var types= data.body.results;
+			var all_devices=[];
+			if(types){
+				types.forEach(function(type){
+					iot.getAllDevicesbyType(type.id).then(function (result) {
+						var devices=result.body.results;
+						devices.forEach(function (device) {
+							all_devices.push(device);
+							Valves.createValve(device);
+						});
+					});
+				});
+				res.json(all_devices);
+			}
 
-		db.view("valves", "all", {include_docs:true}).then(function(data){
-	    res.json(data);
-	  }).catch(function (error) {
-			console.log("[Valve] error : ");
-			console.log(error);
-
+		}).catch(function (error) {
+			console.log("[Valve] error dumpValves : " + error.error.reason);
 			res.json(error);
 		});
   },
@@ -27,6 +39,16 @@ var Valves = {
 			console.log("[Valve] error : ");
 			console.log(error);
 			res.json(error);
+		});
+  },
+
+	createValve: function(valve){
+		valve._id= "valve:"+valve.clientId;
+		valve.type="valve";
+		db.save(valve).then(function(data){
+	    console.log("Saved");
+	  }).catch(function (error) {
+			console.log("[Valve] error : "+ error.error.reason);
 		});
   },
 
@@ -66,8 +88,8 @@ var Valves = {
 	getValves: function(req, res){
     console.log("[Valves] listing valves");
 		var params = { "include_docs":true,
-									"startkey":"valve:",
-								  "endkey": "valve:\ufff0"};
+									"startkey":"valve:d:",
+								  "endkey": "valve:d:\ufff0"};
 
 		db.list(params).then(function(data){
 	    res.json(data);
@@ -77,6 +99,12 @@ var Valves = {
 			res.json(error);
 		});
   },
+
+	getHistoryValve: function (req, res) {
+		console.log("[Valves] historyValve");
+		var valve={};
+		valve._id=req.params.id;
+	}
 
 
 };// Application

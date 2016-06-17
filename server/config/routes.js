@@ -30,7 +30,7 @@ router.get('/api/auth/session', middleware.ensureAuthenticatedAPI, function(req,
 });
 
 router.post('/api/auth/login',middleware.urlEncodedParser,middleware.passport.authenticate('local'),function (req,res){
-  console.log(req.user);  
+  console.log(req.user);
   if(req.user.hasAccess) {
       req.session.user = req.user;
       req.session.isAuthenticated = true;
@@ -55,12 +55,14 @@ router.get('/logout', function(req, res) {
 });
 
 
-router.get('/api/valves', Valve.getValves);
+router.get('/api/valves', middleware.ensureAuthenticatedAPI, Valve.getValves);
 
-router.get('/api/user', User.getUsers);
-router.post('/api/user', User.saveUser);
-router.delete('/api/user/:id/:rev', User.deleteUser);
-router.put('/api/user', User.updateUser);
+router.get('/api/user',middleware.ensureAuthenticatedAPI, User.getUsers);
+router.post('/api/user', middleware.ensureAuthenticatedAPI, User.saveUser);
+router.delete('/api/user/:id/:rev', middleware.ensureAuthenticatedAPI, User.deleteUser);
+router.put('/api/user',middleware.ensureAuthenticatedAPI,  User.updateUser);
 router.get('/api/user/:user', User.getUser);
+
+router.get('/api/dumpValves', middleware.ensureAuthenticatedAPI, Valve.dumpAllValves);
 
 module.exports = exports = router;

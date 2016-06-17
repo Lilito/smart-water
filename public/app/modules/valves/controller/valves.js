@@ -1,4 +1,4 @@
-app.controller('UserCtrl', function ($scope, $http, ngToast) {
+app.controller('ValveCtrl', function ($scope, $http, ngToast) {
 
 
   $scope.user= {};
@@ -10,24 +10,20 @@ app.controller('UserCtrl', function ($scope, $http, ngToast) {
   $scope.users = [];
 
 
- function listUsers(){
+ function listValves(){
 
-   $http.get('/api/user/' ).success(function(data, status, headers, config) {
-       $scope.usersList = data.body.rows;
+   $http.get('/api/valves/' ).success(function(data, status, headers, config) {
+       $scope.valvesList = data.body.rows;
+
      }).error(function(data, status, headers, config) {
-       $scope.spinner.usersList = false;
+       $scope.spinner.valves = false;
      });
  }
 
- $scope.newUser = function(){
-  $scope.user = {};
-  $scope.questionView = 'manage';
-};
 
 
 
 $scope.saveUser = function(){
-
   	if ($scope.userForm.$valid) {
   console.log("Saving User");
   //add current date and username to store in database
@@ -114,7 +110,7 @@ $scope.selectUser = function(user){
       $scope.user = angular.copy(doc);
     };
 
-  listUsers();
+  listValves();
 
 
   });

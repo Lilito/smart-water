@@ -25,7 +25,7 @@ app.use(express.static(__dirname + '/public'));
 // init database
 console.log("[app] init database");
 require('./server/lib/db').connect("smartwater");
-
+require('./server/lib/ibmiot').connect();
 // init config
 console.log("[app] init config ");
 app.use(require('./server/config/passport'));

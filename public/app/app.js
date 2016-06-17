@@ -59,6 +59,21 @@ app.config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
      }
    }
  })
+ .state('app.valves', {
+  url: '/valves',
+  views: {
+    'header': {
+      templateUrl: 'app/modules/common/view/header.html'
+    },
+    'footer': {
+      templateUrl: 'app/modules/common/view/footer.html'
+    },
+    'content': {
+      templateUrl: 'app/modules/valves/view/valves.html',
+      controller: 'ValveCtrl'
+    }
+  }
+})
  .state('login', {
     url: '/login',
     templateUrl: 'app/modules/login/view/login.html',

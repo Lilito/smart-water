@@ -16,7 +16,8 @@
     "multer": "*",
     "q": "^1.4.1",
     "request": "*",
-    "qs":"*"
+    "qs":"*",
+    "ibmiotf":"*"
   },
   "devDependencies": {
 
