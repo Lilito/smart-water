@@ -17,7 +17,8 @@
     "q": "^1.4.1",
     "request": "*",
     "qs":"*",
-    "ibmiotf":"*"
+    "ibmiotf":"*",
+    "rand-token":"*"
   },
   "devDependencies": {
 

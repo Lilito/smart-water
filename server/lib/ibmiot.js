@@ -154,7 +154,7 @@ getAllDevicesbyType: function (type) {
     });
 return deferred.promise;
 },
-registerDevice: function (type, deviceId, authToken, deviceInfo, location,metada) {
+registerDevice: function (type, deviceId, authToken, deviceInfo, location,metadata) {
 
   //Example:
   // var type = "Android";

@@ -1,7 +1,8 @@
 var express 	= require('express'),
 	db          = require('../lib/db'),
 	iot          = require('../lib/ibmiot'),
-	q 					= require("q");
+	q 					= require("q"),
+	randtoken = require('rand-token');
 
 var Valves = {
 
@@ -31,7 +32,7 @@ var Valves = {
 	saveValve: function(req, res){
 		var type = req.body.type;
 		var deviceId = req.body.deviceId;
-		var authToken = "";
+		var authToken = randtoken.generate(16);
 		var metadata = {};
 		var deviceInfo = req.body.deviceInfo;
 		var location = req.body.location;

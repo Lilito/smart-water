@@ -23,25 +23,31 @@ app.controller('ValveCtrl', function ($scope, $http, ngToast) {
 
 
 
-$scope.saveUser = function(){
-  	if ($scope.userForm.$valid) {
-  console.log("Saving User");
+$scope.saveValve = function(){
+  	if ($scope.valveForm.$valid) {
+  console.log("Saving Valve");
   //add current date and username to store in database
   $scope.spinner.user = true;
 
     var post = {
-      user: $scope.user
+      type: $scope.type,
+      deviceId: $scope.deviceID,
+      deviceInfo: {
+        "serialNumber": $scope.serialNumber, "manufacturer": $scope.manufacturer, "model": $scope.model, "descriptiveLocation" : $scope.descriptiveLocation
+      },
+      location: {}
     };
 
-  $http.post('/api/user/', post).success(function(data, status, headers, config) {
-    $scope.spinner.user = false;
+
+  $http.post('/api/valves/', post).success(function(data, status, headers, config) {
+    $scope.spinner.valves = false;
     $scope.user={};
     $scope.view = "list";
       listUsers();
 
       ngToast.create({
          className: 'success',
-         content: '<i class="fa fa-check"></i>  User was created',
+         content: '<i class="fa fa-check"></i>  Valve was created',
          animation: 'slide'
        });
 
