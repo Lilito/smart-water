@@ -61,12 +61,7 @@
          });
 
          var contentString = '<div id="content" style="dir:rtl; text-align:right;">'+
-                 '<div id="siteNotice">'+
-                 '</div>'+
-                 '<h1 id="firstHeading" class="firstHeading"><h1>'+valve.doc.deviceId+'</h1>'+
-                 '<div id="bodyContent">'+
-                 '<p>'+valve.doc.open+ 'minutes</p>'+
-                 '</div>'+
+                 valve.doc.deviceId+
                  '</div>';
          var infowindow = new google.maps.InfoWindow({
              content: contentString,
